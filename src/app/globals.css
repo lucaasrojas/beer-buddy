@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
-body {
-    background-color: #FFF;
-    font-family: 'Poppins', sans-serif;
+@theme{
+    --font-family: 'Poppins', sans-serif;
+    --color-primary: oklch(0.59 0.2399 24.64);
+    --color-text-secondary: oklch(0.66 0.0258 272.65);
+}
+
+button:hover {
+    cursor: pointer;
 }

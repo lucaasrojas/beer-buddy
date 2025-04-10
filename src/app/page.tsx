@@ -1,9 +1,15 @@
+'use client'
 import BeerList from "@/components/BeerList";
+import { useStore } from "@/context/store";
+import { useEffect } from "react";
 
 export default function HomePage() {
+  const { setTitle } = useStore();
+  useEffect(() => {
+    setTitle("Cervezas disponibles");
+  });
   return (
     <main className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-poppins mb-4">Cervezas disponibles</h1>
       <BeerList />
     </main>
   );

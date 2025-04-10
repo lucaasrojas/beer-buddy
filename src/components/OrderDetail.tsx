@@ -1,17 +1,26 @@
 "use client";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { orders } from "@/lib/data";
+import { useStore } from "@/context/store";
+import { useEffect, useState } from "react";
+import { Order } from "@/types/order";
 
 export default function OrderDetail() {
   const params = useParams();
-  const id = params?.id as string;
-  const order = orders.find((o) => o.id === id);
+  const {setTitle} = useStore()
+  const [order,setOrder] = useState<Order>();
 
+  useEffect(()=>{
+    const id = params?.id as string;
+    const selectedOrder = orders.find((o) => o.id === id);
+    setOrder(selectedOrder as Order);
+    setTitle(`Orden #${id}`)
+  },[params.id, setTitle])
+ 
   if (!order) return <p className="p-4">Orden no encontrada</p>;
 
   return (
     <div className="p-4 space-y-4">
-      <h2 className="text-xl font-bold">Orden #{order.id}</h2>
       <div className="space-y-2">
         {order.rounds.map((round, i) => (
           <div key={i} className="rounded-xl border p-4 shadow-sm">

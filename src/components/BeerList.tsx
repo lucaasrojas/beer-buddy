@@ -52,7 +52,7 @@ export default function BeerList() {
     <div className="space-y-4">
       <div className="grid grid-cols-1 gap-4">
         {stock.map((beer) => (
-          <BeerCard key={beer.name} beer={beer} onAdd={handleAdd} />
+          <BeerCard key={beer.id} beer={beer} onAdd={handleAdd} />
         ))}
       </div>
       {items.length > 0 && (
