@@ -1,16 +1,9 @@
 "use client";
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "@/app/globals.css";
-import { ContextProvider, useStore } from "@/context/store";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  variable: "--font-poppins",
-  weight: ["400", "500", "600", "700"],
-});
+import { useStore } from "@/context/store";
 
 export const metadata: Metadata = {
   title: "Create Next App",

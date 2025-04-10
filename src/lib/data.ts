@@ -37,4 +37,4 @@ export const stock: Beer[] = [
   },
 ];
 
-export let orders: Order[] = [];
+export const orders: Order[] = [];
